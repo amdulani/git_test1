@@ -1,0 +1,32 @@
+
+<ion-header>
+  <ion-toolbar>
+    
+    <ion-title>sales</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar showCancelButton="never"></ion-searchbar>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-xs="6" class = "topic"><p><b>Item</b></p></ion-col>
+      <ion-col size-xs="2" class = "topic"><p><b>Unit</b></p></ion-col>
+      <ion-col size-xs="2" class = "topic"><p><b>Qty</b></p></ion-col>
+      <ion-col size-xs="2" class = "topic"><p><b>Net</b></p></ion-col>
+    </ion-row>
+    <ion-row *ngFor="let i of goodList">
+      <ion-col size-xs="6"><p>{{i.item}}<p></ion-col>
+        <ion-col size-xs="2" class="list"><p>{{i.cost}}</p></ion-col>
+        <ion-col size-xs="2" class="list"><p>{{i.qty}}</p></ion-col>
+        <ion-col size-xs="2" class="list"><p>{{i.net}}</p></ion-col>
+      
+    </ion-row>
+    </ion-grid>
+    <ion-button color="primary" (click)="charge()">Charge</ion-button>
+    <!--<ion-button color="primary" (click)="charge()" [disabled]="disabled">Charge</ion-button>-->
+    <div>
+      <h3>Total: {{ total | currency:"Rs "}}</h3>
+      
+    </div>
+</ion-content>

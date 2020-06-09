@@ -1,0 +1,154 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>dashboard</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <!--  <ion-col size="1">
+        <span
+          class="slider-nav arrow-prev"
+          (click)="slidePrev(sliderTwo,slideWithNav2)"
+        >
+          <div
+            class="prev-icon-custom custon-nav"
+            [class.disabled]="sliderTwo.isBeginningSlide"
+          ></div>
+        </span>
+      </ion-col> -->
+      <ion-col size="22">
+        <ion-slides
+          pager="false"
+          [options]="slideOptsTwo"
+          #slideWithNav2
+          (ionSlideDidChange)="SlideDidChange(sliderTwo,slideWithNav2)"
+        >
+          <ion-slide *ngFor="let s of sliderTwo.slidesItems">
+            <ion-card class="card4" button="true">
+              <div class="ion-text-end">
+                <h4><b>{{s.title}}</b></h4>
+                <img class="icon2" src="assets/image/arrow.png" />
+                <div class="row1">
+                  <ion-row>
+                    <ion-col size-xs="6" class="ion-text-end">
+                      <p class="p1">
+                        Sales</p>
+                      <p class="p3">{{s.sales | currency :"Rs "}}</p>
+                      </ion-col
+                    >
+                    <ion-col size-xs="6" class="ion-text-end"
+                    
+                      ><p class="p2">
+                        Profit
+                      </p>
+                      <p class="p3">
+                        {{s.profit | currency :"Rs "}}
+                      </p>
+                      </ion-col
+                    >
+                  </ion-row>
+                </div>
+              </div>
+            </ion-card>
+          </ion-slide>
+        </ion-slides>
+      </ion-col>
+      <!--  <ion-col size="1">
+        <span
+          class="slider-nav arrow-next"
+          (click)="slideNext(sliderTwo,slideWithNav2)"
+        >
+          <div
+            class="next-icon-custom custon-nav"
+            [class.disabled]="sliderTwo.isEndSlide"
+          ></div>
+        </span>
+      </ion-col> -->
+    </ion-row>
+  </ion-grid>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-xs="12">
+        <a routerLink="/sales">
+          <ion-card class="card1" color="danger" button="true">
+            <div class="ion-text-end">
+              <h3>Billing</h3>
+              <p>325,422</p>
+            </div>
+            <img class="icon1" src="assets/image/cart.png" />
+          </ion-card>
+        </a>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-xs="4">
+        <a routerLink="/sales" routerLinkActive="active">
+          <ion-card class="card2" color="warning" button="true">
+            <div class="ion-text-end">
+              <h5>Stock</h5>
+              <img class="icon3" src="assets/image/grid.png" />
+            </div>
+          </ion-card>
+        </a>
+      </ion-col>
+      <ion-col size-xs="4">
+        <ion-card class="card2" color="success" button="true">
+          <div class="ion-text-end">
+            <h5>GRN</h5>
+            <img class="icon3" src="assets/image/list.png" />
+          </div>
+        </ion-card>
+      </ion-col>
+      <ion-col size-xs="4">
+        <ion-card class="card2" color="secondary" button="true">
+          <div class="ion-text-end">
+            <h5>Experience</h5>
+            <img class="icon3" src="assets/image/wallet.png" />
+          </div>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-xs="4">
+        <ion-card class="card2" color="tertiary" button="true">
+          <div class="ion-text-end">
+            <h5>Reports</h5>
+            <img class="icon3" src="assets/image/document.png" />
+          </div>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card class="card2" color="danger" button="true">
+          <div class="ion-text-end">
+            <h5>Suppliers</h5>
+            <img class="icon3" src="assets/image/factory.png" />
+          </div>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-row>
+          <ion-col>
+            <ion-card class="card3" color="warning" button="true">
+              <div class="ion-text-end">
+                <h6>Backup</h6>
+                <img class="icon4" src="assets/image/upload.png" />
+              </div>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-card class="card3" color="success" button="true">
+              <div class="ion-text-end">
+                <h6>Return</h6>
+                <img class="icon4" src="assets/image/previous.png" />
+              </div>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

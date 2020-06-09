@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-toolbar></ion-toolbar>
+    <ion-list class="ion-no-padding">
+      
+      
+        <ion-item class="ion-no-padding" *ngFor="let i of suppliers" (click)="go()" button>
+           
+          <ion-col size-xs="6" style="padding-left:5px;"><p>{{i.name}}</p></ion-col>
+        
+        </ion-item>
+          
+    </ion-list>
+</ion-content>

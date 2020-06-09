@@ -1,0 +1,46 @@
+<ion-app>
+  <ion-header color="primary">
+
+    <ion-toolbar color="primary">
+      <!-- <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+          </ion-buttons> -->
+      <ion-title>Dashboard</ion-title>
+    </ion-toolbar>
+    <!-- <ion-toolbar *ngIf="(router.url === '/inventory')" color="primary"> -->
+    <ion-segment
+      *ngIf="(router.url === '/inventory') || (router.url === '/inventory/categories') || (router.url === '/inventory/suppliers')"
+      value="all" style="--background:#ffffff">
+      <ion-segment-button value="additems" [routerLink]="['/inventory']">All Items</ion-segment-button>
+      <ion-segment-button value="categories" [routerLink]="['/inventory/categories']">Categories</ion-segment-button>
+      <ion-segment-button value="suppliers" [routerLink]="['/inventory/suppliers']">Suppliers</ion-segment-button>
+    </ion-segment>
+    <!-- </ion-toolbar> -->
+  </ion-header>
+  <ion-router-outlet></ion-router-outlet>
+
+  <ion-tabs>
+    <ion-tab-bar slot="bottom" color="primary">
+      <ion-tab-button tab="sales">
+        <ion-icon name="cart"></ion-icon>
+        <ion-label>Sales</ion-label>
+        <!-- <ion-badge>6</ion-badge> -->
+      </ion-tab-button>
+
+      <ion-tab-button tab="inventory">
+        <ion-icon name="home"></ion-icon>
+        <ion-label>Inventory</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="map">
+        <ion-icon name="newspaper"></ion-icon>
+        <ion-label>Bills</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="about">
+        <ion-icon name="stats-chart"></ion-icon>
+        <ion-label>Dashboard</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-app>

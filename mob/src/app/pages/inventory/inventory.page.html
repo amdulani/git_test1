@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-toolbar></ion-toolbar>
+  <!-- <ion-router-outlet animated></ion-router-outlet> -->
+  <ion-list>
+    <ion-item class="ion-no-padding">
+
+      <ion-col size-xs="5" class="topic">
+        <p>Item</p>
+      </ion-col>
+      <ion-col size-xs="2" class="topic">
+        <p>Price</p>
+      </ion-col>
+      <ion-col size-xs="5" class="topic">
+        <p>Stock Details</p>
+      </ion-col>
+    </ion-item>
+
+    <ion-item class="ion-no-padding" *ngFor="let i of products" (click)="go()" button>
+
+      <ion-col size-xs="5" style="padding-left:5px;">
+        <p>{{i.product_name}}</p>
+      </ion-col>
+      <ion-col size-xs="2" class="list">
+        <p>{{i.price}}</p>
+      </ion-col>
+      <!-- <ion-col size-xs="5" class="list"><p>{{i.unit}}</p></ion-col> -->
+      <ion-col>
+        <ion-row *ngFor="let item of i.stock_detail">
+            <ion-col style="text-align: right;">{{item.expire_date}}&nbsp;&nbsp;{{item.quantity}}</ion-col></ion-row>
+      </ion-col>
+
+    </ion-item>
+
+  </ion-list>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="addGoods()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

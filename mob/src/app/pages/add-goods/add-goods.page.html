@@ -1,0 +1,103 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>add-goods</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid>
+
+    <ion-row>
+
+      <ion-col class="column">
+        <form #form="ngForm" (ngSubmit)="logForm(form)">
+          <!--================================================Name=================================================================== -->
+          <ion-item class="ion-no-padding">
+            <ion-label position="stacked">Name</ion-label>
+            <ion-input required type="text" placeholder="Item Name" [(ngModel)]="itemName" name="itemName"></ion-input>
+          </ion-item>
+          <!--================================================Barcode=================================================================== -->
+          <ion-row>
+            <ion-item class="ion-no-padding">
+              <ion-label position="stacked">Barcode</ion-label>
+              <ion-input required type="text" placeholder="Barcode" [(ngModel)]="barcodeData" name="barcodeData">
+              </ion-input>
+            </ion-item>
+
+            <ion-button style="margin-left: 10px; margin-top:10px;" (click)="scanCode()">
+              <ion-icon slot="start" name="barcode-outline"></ion-icon>
+              Scan
+            </ion-button>
+          </ion-row>
+          <!--================================================Category=================================================================== -->
+          <ion-item class="ion-no-padding">
+            <ion-label>Category</ion-label>
+            <ion-select interface="action-sheet" required [(ngModel)]="category" name="category">
+              <ion-select-option *ngFor="let cat of categories">{{cat.name}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <!--================================================Supplier=================================================================== -->
+          <ion-item class="ion-no-padding">
+            <ion-label>Supplier</ion-label>
+            <ion-select interface="action-sheet" required [(ngModel)]="supplier" name="supplier">
+              <ion-select-option *ngFor="let sup of suppliers">{{sup.name}}</ion-select-option>
+              
+            </ion-select>
+          </ion-item>
+          <!--================================================Amount and Unit=================================================================== -->
+          <ion-row>
+            <ion-item class="ion-no-padding">
+              <ion-label position="stacked">Unit Amt.</ion-label>
+              <ion-input required type="number" inputmode="numeric" placeholder="Unit Amount" [(ngModel)]="unitAmount"
+                name="unitAmount"></ion-input>
+            </ion-item>
+            <ion-item style="margin-left: 10px">
+              <ion-label position="stacked">Unit</ion-label>
+              <ion-select interface="action-sheet" placeholder="units" required [(ngModel)]="unit" name="unit">
+                <ion-select-option value="kg">Kg</ion-select-option>
+                <ion-select-option value="l">l</ion-select-option>
+                <ion-select-option value="units">units</ion-select-option>
+              </ion-select>
+            </ion-item>
+
+          </ion-row>
+          <!--================================================Qty=================================================================== -->
+
+          <ion-item class="ion-no-padding">
+            <ion-label position="stacked">Quantity</ion-label>
+            <ion-input required type="number" inputmode="numeric" placeholder="Quantity" [(ngModel)]="quantity" name="quantity"></ion-input>
+          </ion-item>
+          <!--================================================Cost=================================================================== -->
+
+          <ion-item class="ion-no-padding">
+            <ion-label position="stacked">Cost Price</ion-label>
+            <ion-input required type="number" inputmode="numeric" placeholder="Cost per Unit" [(ngModel)]="cost" name="cost"></ion-input>
+          </ion-item>
+          <!--================================================Retail=================================================================== -->
+
+          <ion-item class="ion-no-padding">
+            <ion-label position="stacked">Retail Price</ion-label>
+            <ion-input required type="number" inputmode="numeric" placeholder="Retail Price per Unit" [(ngModel)]="retailP" name="retailP">
+            </ion-input>
+          </ion-item>
+          <!--================================================Expiry Date=================================================================== -->
+
+          <ion-item class="ion-no-padding">
+            <ion-label position="stacked">Expiry Date</ion-label>
+            <ion-datetime class="datedesign" max="2031" min="2020" display-format="YYYY-MM-DD" placeholder="Expiry Date"
+              [(ngModel)]="expiryDate" name="expiryDate" required></ion-datetime>
+          </ion-item>
+
+          <ion-button [disabled]="form.invalid" expand="full" style="margin-top: 20px" type="submit">
+            Add new item
+          </ion-button>
+
+        </form>
+      </ion-col>
+
+    </ion-row>
+
+  </ion-grid>
+
+</ion-content>

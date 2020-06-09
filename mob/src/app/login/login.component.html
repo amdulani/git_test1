@@ -1,0 +1,18 @@
+<ion-content padding center text-center>
+  <div class="title-wrapper"></div>
+  <div class="login-form">
+    <ion-list>
+      <ion-item>
+        <ion-input placeholder="Username" [(ngModel)]="username"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input placeholder="Password" type="Password" [(ngModel)]="password"></ion-input>
+      </ion-item>
+    </ion-list>
+  </div>
+  
+  <div class="button-wrapper">
+    <button ion-button full class="login-button btn" (click)="login()">Log In</button> <br>
+    <button ion-button full class="register-button btn" color="light" (click)="goRegister()">Register</button>
+  </div>
+</ion-content>
